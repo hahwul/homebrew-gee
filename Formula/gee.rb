@@ -5,24 +5,24 @@
 class Gee < Formula
   desc "Standard input to each files and stdout. similar to tee, write in go"
   homepage "https://github.com/hahwul/gee"
-  version "1.0.0"
+  version "1.0.1"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.0/gee_1.0.0_darwin_amd64.tar.gz"
-    sha256 "ba600338f958c351e515b302598d892461677a325d46eb9c586083f04eb2bfe3"
+    url "https://github.com/hahwul/gee/releases/download/v1.0.1/gee_1.0.1_darwin_amd64.tar.gz"
+    sha256 "9e16dab21e407fef42c43a3c16dceb82dd33832817474f78cbbfde0ff45444bd"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.0/gee_1.0.0_linux_amd64.tar.gz"
-    sha256 "7b15182d79a121d9a3f018890a5a669bd2b66a6a92460d09219011591838119b"
+    url "https://github.com/hahwul/gee/releases/download/v1.0.1/gee_1.0.1_linux_amd64.tar.gz"
+    sha256 "9a209fc86838f1df5c5ab205dadebf2473808a175a3fec723264df9b198f264e"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.0/gee_1.0.0_linux_armv6.tar.gz"
-    sha256 "fccbeae877b3cefde8dbba68e40e5422807ebe1df205f63a6b5cd2d45c5cdb03"
+    url "https://github.com/hahwul/gee/releases/download/v1.0.1/gee_1.0.1_linux_armv6.tar.gz"
+    sha256 "6e678635341a81e3ad504722e831b51d06ee92b53810d434e58b31a6b65e61a1"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.0/gee_1.0.0_linux_arm64.tar.gz"
-    sha256 "bf15e199184381bfb87e160732f2fa99e87c186105e9e16ced62b90690af244b"
+    url "https://github.com/hahwul/gee/releases/download/v1.0.1/gee_1.0.1_linux_arm64.tar.gz"
+    sha256 "45c75f15e40ba951e16ec262eff223c7e36e82e60a76fc4bbceaa7246b011288"
   end
 
   def install
