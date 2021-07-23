@@ -5,24 +5,29 @@
 class Gee < Formula
   desc "Standard input to each files and stdout. similar to tee, write in go"
   homepage "https://github.com/hahwul/gee"
-  version "1.0.3"
+  version "1.0.4"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.3/gee_1.0.3_darwin_amd64.tar.gz"
-    sha256 "ba7713788f2c845d3ef762da1386e3fea0a8b227fdbfd0a53ce5f54bc350622c"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_darwin_amd64.tar.gz"
+      sha256 "0d606463d560f837cfc00fafb02fc40218d565a9b493a6a95b25d4b146f06083"
+    end
   end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.3/gee_1.0.3_linux_amd64.tar.gz"
-    sha256 "53b471856ef842ab4bb9a498ddac9b2129f8cd9e80adc5bc7c4527d4d2974ab9"
-  end
-  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.3/gee_1.0.3_linux_armv6.tar.gz"
-    sha256 "abc60b44b2df295beff7431348b2f870b3a29e7960fa91d2badb0c9b42e4f869"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/hahwul/gee/releases/download/v1.0.3/gee_1.0.3_linux_arm64.tar.gz"
-    sha256 "42536473d6523ed0502d1cd17d834ac34e61922cf89c5d6303fff2b414d4d79b"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_linux_amd64.tar.gz"
+      sha256 "0d64d5f3fa51851e17ccd9776e9f98604c5cf84fd419353ddebde044e8d3a2c8"
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_linux_armv6.tar.gz"
+      sha256 "c6d1eed0e0bef6cdfc6af7823aba4f41b6186a19026f4d778f89fd539c40059f"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_linux_arm64.tar.gz"
+      sha256 "6a00e24c8b864d802538b4e05f1023955b2bb25a9c0fb49a818103c54308bb58"
+    end
   end
 
   def install
