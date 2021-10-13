@@ -5,28 +5,32 @@
 class Gee < Formula
   desc "Standard input to each files and stdout. similar to tee, write in go"
   homepage "https://github.com/hahwul/gee"
-  version "1.0.4"
+  version "1.1.0"
   bottle :unneeded
 
   on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_darwin_arm64.tar.gz"
+      sha256 "685b1cf904654bb9ef7535d6a87a211cb43aec84212b657177eb05d68a43e8fa"
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_darwin_amd64.tar.gz"
-      sha256 "0d606463d560f837cfc00fafb02fc40218d565a9b493a6a95b25d4b146f06083"
+      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_darwin_amd64.tar.gz"
+      sha256 "2ccdcc01dc5ab88b9a76252fd5a6274f91033415b8a8c15c548b500579c97d09"
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_linux_amd64.tar.gz"
-      sha256 "0d64d5f3fa51851e17ccd9776e9f98604c5cf84fd419353ddebde044e8d3a2c8"
-    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_linux_armv6.tar.gz"
-      sha256 "c6d1eed0e0bef6cdfc6af7823aba4f41b6186a19026f4d778f89fd539c40059f"
+      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_linux_armv6.tar.gz"
+      sha256 "291d09dca92b33149bf701ec81a37603d65324d9fb9e34a7ead5efb934975380"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hahwul/gee/releases/download/v1.0.4/gee_1.0.4_linux_arm64.tar.gz"
-      sha256 "6a00e24c8b864d802538b4e05f1023955b2bb25a9c0fb49a818103c54308bb58"
+      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_linux_arm64.tar.gz"
+      sha256 "535b9c74008205dbd30854b5b6d9c8c436319a373ea0154edfbe061529eaff56"
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_linux_amd64.tar.gz"
+      sha256 "0aa09074f8ed2b12faf4d79355dbcfbb84f636a177df809d2585dbe854638521"
     end
   end
 
