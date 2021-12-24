@@ -5,37 +5,52 @@
 class Gee < Formula
   desc "Standard input to each files and stdout. similar to tee, write in go"
   homepage "https://github.com/hahwul/gee"
-  version "1.1.0"
-  bottle :unneeded
+  version "1.1.1"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_darwin_arm64.tar.gz"
-      sha256 "685b1cf904654bb9ef7535d6a87a211cb43aec84212b657177eb05d68a43e8fa"
-    end
     if Hardware::CPU.intel?
-      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_darwin_amd64.tar.gz"
-      sha256 "2ccdcc01dc5ab88b9a76252fd5a6274f91033415b8a8c15c548b500579c97d09"
+      url "https://github.com/hahwul/gee/releases/download/v1.1.1/gee_1.1.1_darwin_amd64.tar.gz"
+      sha256 "e0ee266942d70eef67557b6a3731d81bae28d7ba075c00a564c1ca6bc7fcd6db"
+
+      def install
+        bin.install "gee"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/hahwul/gee/releases/download/v1.1.1/gee_1.1.1_darwin_arm64.tar.gz"
+      sha256 "0d2383d4fb32f122c01ac1c5ab7c50ba9ea0b7e1703ee9e320642806963b6ab4"
+
+      def install
+        bin.install "gee"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_linux_armv6.tar.gz"
-      sha256 "291d09dca92b33149bf701ec81a37603d65324d9fb9e34a7ead5efb934975380"
+      url "https://github.com/hahwul/gee/releases/download/v1.1.1/gee_1.1.1_linux_armv6.tar.gz"
+      sha256 "8dde1d256dd889699ded9f325de9bc0cef07963c67fb0307715a4cae8423a432"
+
+      def install
+        bin.install "gee"
+      end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_linux_arm64.tar.gz"
-      sha256 "535b9c74008205dbd30854b5b6d9c8c436319a373ea0154edfbe061529eaff56"
+      url "https://github.com/hahwul/gee/releases/download/v1.1.1/gee_1.1.1_linux_arm64.tar.gz"
+      sha256 "a87e902f3f1319b0ed95a6181144f0539b428aaeedb5d5f37767b378802d8c3a"
+
+      def install
+        bin.install "gee"
+      end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/hahwul/gee/releases/download/v1.1.0/gee_1.1.0_linux_amd64.tar.gz"
-      sha256 "0aa09074f8ed2b12faf4d79355dbcfbb84f636a177df809d2585dbe854638521"
-    end
-  end
+      url "https://github.com/hahwul/gee/releases/download/v1.1.1/gee_1.1.1_linux_amd64.tar.gz"
+      sha256 "98209fc775a34ad62e33ac0f8b195275674c8cf24a5a3e4b1faab7c44227cb26"
 
-  def install
-    bin.install "gee"
+      def install
+        bin.install "gee"
+      end
+    end
   end
 
   test do
